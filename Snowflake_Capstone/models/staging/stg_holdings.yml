@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_holdings
+    description: "Staged holdings snapshot data"
+    columns:
+      - name: account_id
+        tests:
+          - not_null
+
+      - name: as_of_timestamp
+        tests:
+          - not_null

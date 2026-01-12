@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: account_transaction
+    database: CAPSTONE
+    schema: ACCOUNT_TRANSACTION
+    tables:
+      - name: account
+        description: "Raw account data from Snowflake"
+      - name: holdings
+        description: "Raw holdings snapshot data"
+      - name: model
+        description: "Raw investment model data"
