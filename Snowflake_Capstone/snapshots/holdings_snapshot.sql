@@ -3,7 +3,7 @@
 {{
   config(
     target_schema='snapshots',
-    unique_key="snam || '-' || ticker",
+    unique_key="account_id || '-' || ticker",
     strategy='timestamp',
     updated_at='date'
   )
