@@ -9,4 +9,3 @@ select
     isactive      as is_active
 from {{ source('account_transaction', 'account') }}
 where {{ active_accounts() }}
-
