@@ -1,5 +1,4 @@
 {{ config(materialized='view') }}
-
 select
     accountid     as account_id,
     modelcode     as model_code,
@@ -9,3 +8,4 @@ select
     bdid          as bd_id,
     isactive      as is_active
 from {{ source('account_transaction', 'account') }}
+where {{ active_accounts() }}
