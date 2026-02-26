@@ -5,5 +5,6 @@ select
     custodian_code,
     advisor_id,
     agent_id,
-    bd_id
+    bd_id,
+    {{ audit_columns() }}
 from {{ ref('stg_account') }}
