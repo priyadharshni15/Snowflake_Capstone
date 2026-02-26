@@ -1,0 +1,42 @@
+version: 2
+models:
+  - name: dim_account
+    description: "Dimension table for account details"
+    columns:
+      - name: account_id
+        tests:
+          - not_null
+          - unique
+      - name: model_code
+        tests:
+          - not_null
+      - name: advisor_id
+        tests:
+          - not_null
+
+  - name: dim_tickers
+    description: "Ticker details per account"
+    columns:
+      - name: account_id
+        tests:
+          - not_null
+      - name: ticker
+        tests:
+          - not_null
+      - name: shares
+        tests:
+          - not_null
+      - name: market_value
+        tests:
+          - not_null
+  
+  - name: dim_model
+    description: "Model dimension"
+    columns:
+      - name: model_id
+        tests:
+          - not_null
+          - unique
+      - name: strategist_id
+        tests:
+          - not_null
