@@ -1,11 +1,9 @@
 {{ config(materialized='table') }}
 select
-    accountid     as account_id,
-    modelcode     as model_code,
-    {{ normalize_null('custodiancode') }} as custodian_code,
-    advisorid     as advisor_id,
-    agentid       as agent_id,
-    bdid          as bd_id,
-    isactive      as is_active
+    account_id,
+    model_code,
+    custodian_code,
+    advisor_id,
+    agent_id,
+    bd_id
 from {{ ref('stg_account') }}
-where {{ active_accounts() }}

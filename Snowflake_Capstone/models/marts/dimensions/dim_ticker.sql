@@ -1,8 +1,11 @@
 {{ config(materialized='table') }}
 
-select distinct 
+select  
     ticker,
     account_id,
     cusip,
-    description
+    description,
+    shares,
+    market_value,
+    as_of_timestamp
 from {{ ref('stg_holdings') }}
