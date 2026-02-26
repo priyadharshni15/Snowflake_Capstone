@@ -1,0 +1,39 @@
+model_name,risk_category
+Aggressive Growth Model,high
+Balanced Growth Model,medium
+Income Plus Model,medium
+Capital Preservation Model,low
+Equity Advantage Model,high
+Dynamic Equity Model,high
+Core Equity Model,medium
+Global Equity Model,high
+International Growth Model,high
+Emerging Markets Model,high
+Developed Markets Model,medium
+Income Builder Model,low
+High Yield Income Model,medium
+Stable Income Model,low
+Tax Efficient Model,medium
+Tax Optimized Growth Model,medium
+After Tax Return Model,medium
+Long Term Tax Saver Model,medium
+ESG Core Model,medium
+ESG Growth Model,high
+Sustainable Income Model,low
+Low Volatility Model,low
+Capital Protection Model,low
+Defensive Allocation Model,low
+Technology Focus Model,high
+Innovation Growth Model,high
+Digital Economy Model,high
+AI Opportunities Model,high
+Multi Asset Model,medium
+Balanced Allocation Model,medium
+Diversified Growth Model,medium
+Short Term Debt Model,low
+Corporate Bond Model,low
+Dynamic Bond Model,medium
+Gilt Advantage Model,low
+Small Cap Growth Model,high
+Mid Cap Opportunities Model,high
+Emerging Leaders Model,high
