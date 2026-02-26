@@ -6,6 +6,6 @@ select
     advisorid     as advisor_id,
     agentid       as agent_id,
     bdid          as bd_id,
-    isactive      as is_active
+    {{ normalize_boolean('isactive') }} as is_active
 from {{ source('account_transaction', 'account') }}
 where {{ active_accounts() }}

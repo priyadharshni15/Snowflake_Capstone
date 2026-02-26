@@ -1,0 +1,10 @@
+{{ config(materialized='table') }}
+select
+    h.account_id,
+    a.model_code as model_id,
+    h.ticker,
+    h.shares,
+    h.market_value
+from {{ ref('stg_holdings') }} h
+left join {{ ref('dim_account') }} a
+    on h.account_id = a.account_id
