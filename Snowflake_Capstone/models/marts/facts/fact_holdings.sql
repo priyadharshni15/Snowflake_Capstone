@@ -7,5 +7,5 @@ select
     h.market_value,
     {{ audit_columns() }}
 from {{ ref('stg_holdings') }} h
-left join {{ ref('dim_account') }} a
+inner join {{ ref('dim_account') }} a
     on h.account_id = a.account_id
