@@ -24,6 +24,7 @@ holdings as (
         market_value,
         as_of_timestamp
     from {{ ref('holdings_snapshot') }}
+    where dbt_valid_to is null
 
 ),
 
@@ -52,6 +53,6 @@ from account a
 join holdings h
     on a.account_id = h.account_id
 
-left join ticker_shares t
+inner join ticker_shares t
     on h.account_id = t.account_id
     and h.ticker = t.ticker

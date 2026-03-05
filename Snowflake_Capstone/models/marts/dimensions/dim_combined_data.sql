@@ -49,7 +49,7 @@ select
     h.as_of_timestamp
 from account a
 
-left join model m
+inner join model m
     on a.model_code = m.model_id
 
 inner join holdings h
