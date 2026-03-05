@@ -1,27 +1,89 @@
 version: 2
+
 models:
   - name: stg_account
-    description: "Staged account data with cleaned column names"
+    description: "Staged account data with normalized columns and active status flag"
     columns:
       - name: account_id
+        description: "Unique identifier for an account"
         tests:
           - not_null
           - unique
 
-  - name: stg_holdings
-    description: "Staged holdings snapshot data"
-    columns:
-      - name: account_id
+      - name: model_code
+        description: "Model assigned to the account"
         tests:
           - not_null
+
+      - name: custodian_code
+        description: "Custodian managing the account"
+
+      - name: advisor_id
+        description: "Advisor responsible for the account"
+        tests:
+          - not_null
+
+      - name: agent_id
+        description: "Agent associated with the account"
+
+      - name: bd_id
+        description: "Broker dealer identifier"
+
+      - name: is_active
+        description: "Boolean flag indicating whether the account is active"
+        tests:
+          - not_null
+
+  - name: stg_holdings
+    description: "Staged holdings data representing daily positions of tickers in each account"
+    columns:
+      - name: account_id
+        description: "Account holding the asset"
+        tests:
+          - not_null
+
+      - name: ticker
+        description: "Stock ticker symbol"
+        tests:
+          - not_null
+
+      - name: cusip
+        description: "CUSIP identifier for the security"
+
+      - name: shares
+        description: "Number of shares held"
+        tests:
+          - not_null
+
+      - name: market_value
+        description: "Total market value of the holding"
+        tests:
+          - not_null
+
       - name: as_of_timestamp
+        description: "Date when the holding value was recorded"
         tests:
           - not_null
 
   - name: stg_model
-    description: "Staged investment model data"
+    description: "Staged investment model data used for portfolio strategies"
     columns:
       - name: model_id
+        description: "Unique identifier for investment model"
         tests:
           - not_null
           - unique
+
+      - name: model_name
+        description: "Name of the investment model"
+        tests:
+          - not_null
+
+      - name: strategist_id
+        description: "Identifier for strategist responsible for the model"
+
+      - name: strategist_code
+        description: "Code assigned to the strategist"
+
+      - name: strategist_name
+        description: "Name of the strategist"
