@@ -1,3 +1,3 @@
 {% macro active_accounts() %}
-isactive = Yes
+isactive = 'Yes'
 {% endmacro %}

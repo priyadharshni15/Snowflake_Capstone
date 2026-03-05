@@ -13,8 +13,7 @@ select
     modelid,
     advisorid,
     bdid,
-    {{ normalize_null('custodian') }} as custodian,
-    {{ normalize_boolean('isactive') }} as isactive
-
+    custodian,
+    isactive
 from {{ source('account_transaction', 'account') }}
 where {{ active_accounts() }}

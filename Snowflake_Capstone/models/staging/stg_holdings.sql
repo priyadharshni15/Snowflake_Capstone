@@ -1,11 +1,12 @@
 {{ config(materialized='view') }}
 
 select
-    snam                as account_id,
+    pk_id,
+    accountid,
     ticker,
     cusip,
-    share               as shares,
-    mv                  as market_value,
+    shares,
+    marketvalue,
     description,
-    date                as as_of_timestamp
+    date
 from {{ source('account_transaction', 'holdings') }}
