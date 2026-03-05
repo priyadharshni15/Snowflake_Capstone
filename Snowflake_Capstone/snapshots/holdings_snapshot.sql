@@ -5,18 +5,20 @@
     target_schema='snapshots',
     unique_key=['pk_id','accountid','ticker'],
     strategy='timestamp',
-    updated_at='as_of_timestamp'
+    updated_at='date'
   )
 }}
 
 select
-    account_id,
+    pk_id,
+    accountid,
     ticker,
     cusip,
     shares,
-    market_value,
+    marketvalue,
+    date,
     description,
-    as_of_timestamp
+    strategistid
 from {{ ref('stg_holdings') }}
 
 {% endsnapshot %}

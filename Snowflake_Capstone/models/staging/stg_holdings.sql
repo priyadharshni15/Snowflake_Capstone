@@ -7,6 +7,8 @@ select
     cusip,
     shares,
     marketvalue,
+    date,
     description,
-    date
+    strategistid
+    
 from {{ source('account_transaction', 'holdings') }}
