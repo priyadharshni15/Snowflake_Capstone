@@ -3,9 +3,7 @@
 {{
   config(
     target_schema='snapshots',
-    unique_key=['pk_id','accountid','ticker'],
-    strategy='timestamp',
-    updated_at='date'
+    unique_key=['pk_id','accountid','ticker']
   )
 }}
 
