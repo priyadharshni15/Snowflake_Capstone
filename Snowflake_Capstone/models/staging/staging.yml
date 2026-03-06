@@ -4,32 +4,29 @@ models:
   - name: stg_account
     description: "Staged account data with normalized columns and active status flag"
     columns:
-      - name: account_id
+      - name: accountid
         description: "Unique identifier for an account"
         tests:
           - not_null
           - unique
 
-      - name: model_code
+      - name: modelid
         description: "Model assigned to the account"
         tests:
           - not_null
 
-      - name: custodian_code
+      - name: custodian
         description: "Custodian managing the account"
 
-      - name: advisor_id
+      - name: advisorid
         description: "Advisor responsible for the account"
         tests:
           - not_null
 
-      - name: agent_id
-        description: "Agent associated with the account"
-
-      - name: bd_id
+      - name: bdid
         description: "Broker dealer identifier"
 
-      - name: is_active
+      - name: isactive
         description: "Boolean flag indicating whether the account is active"
         tests:
           - not_null
@@ -37,7 +34,7 @@ models:
   - name: stg_holdings
     description: "Staged holdings data representing daily positions of tickers in each account"
     columns:
-      - name: account_id
+      - name: accountid
         description: "Account holding the asset"
         tests:
           - not_null
@@ -55,12 +52,12 @@ models:
         tests:
           - not_null
 
-      - name: market_value
+      - name: marketvalue
         description: "Total market value of the holding"
         tests:
           - not_null
 
-      - name: as_of_timestamp
+      - name: date
         description: "Date when the holding value was recorded"
         tests:
           - not_null
@@ -68,7 +65,7 @@ models:
   - name: stg_model
     description: "Staged investment model data used for portfolio strategies"
     columns:
-      - name: model_id
+      - name: modelid
         description: "Unique identifier for investment model"
         tests:
           - not_null
@@ -79,11 +76,11 @@ models:
         tests:
           - not_null
 
-      - name: strategist_id
+      - name: strategistid
         description: "Identifier for strategist responsible for the model"
 
-      - name: strategist_code
+      - name: strategistcode
         description: "Code assigned to the strategist"
 
-      - name: strategist_name
+      - name: strategistname
         description: "Name of the strategist"
