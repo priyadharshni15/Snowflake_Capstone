@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: dim_combined_data
+    description: "Combined dimension table containing account, model, and holdings information"
+
+    columns:
+      - name: accountid
+        description: "Unique identifier for account"
+        tests:
+          - not_null
+
+      - name: address
+        description: "Address of the account holder"
+
+      - name: modelid
+        description: "Model identifier assigned to account"
+        tests:
+          - not_null
+
+      - name: advisorid
+        description: "Advisor managing the account"
+
+      - name: bdid
+        description: "Broker dealer identifier"
+
+      - name: custodian
+        description: "Custodian responsible for holding the assets"
+
+      - name: modelname
+        description: "Name of the investment model"
+
+      - name: strategistid
+        description: "Strategist responsible for the model"
+        tests:
+          - not_null
+
+      - name: strategistcode
+        description: "Code assigned to the strategist"
+
+      - name: strategistname
+        description: "Name of the strategist"
+
+      - name: ticker
+        description: "Security ticker"
+        tests:
+          - not_null
+
+      - name: cusip
+        description: "CUSIP identifier for the security"
+
+      - name: shares
+        description: "Number of shares held"
+
+      - name: marketvalue
+        description: "Market value of the holding"
+
+      - name: date
+        description: "Date of the holdings snapshot"
+        tests:
+          - not_null
+
+      - name: description
+        description: "Security description"
