@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_accounts2
+  - name: stg_account
     description: "Staged account data with normalized columns and active status flag"
     columns:
       - name: accountid
@@ -62,7 +62,7 @@ models:
         tests:
           - not_null
 
-  - name: stg_model2
+  - name: stg_model
     description: "Staged investment model data used for portfolio strategies"
     columns:
       - name: modelid
