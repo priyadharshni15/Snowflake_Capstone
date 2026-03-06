@@ -1,12 +1,14 @@
 select
     accountid,
-    ticker,
     modelid,
     advisorid,
-    sum(shares) as total_shares
+    bdid,
+    address,
+    sum(marketvalue) as total_shares
 from {{ ref('dim_combined_data') }}
 group by
     accountid,
-    ticker,
     modelid,
-    advisorid
+    advisorid,
+    bdid,
+    address
