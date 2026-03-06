@@ -15,7 +15,6 @@ select
     h.marketvalue,
     h.date,
     h.description
-
 from {{ ref('stg_account') }} a
 inner join {{ ref('stg_model') }} m 
     on a.modelid = m.modelid
