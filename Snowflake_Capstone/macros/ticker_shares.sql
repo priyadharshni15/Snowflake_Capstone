@@ -2,11 +2,9 @@
 
 select
     accountid,
-    ticker,
-    sum(shares) as total_shares
+    sum(marketvalue) as Total_AUM
 from {{ relation_name }}
 group by
-    accountid,
-    ticker
+    accountid
 
 {% endmacro %}

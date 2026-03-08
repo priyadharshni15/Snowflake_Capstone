@@ -18,5 +18,5 @@ select
 from {{ ref('stg_account') }} a
 inner join {{ ref('stg_model') }} m 
     on a.modelid = m.modelid
-inner join {{ ref('stg_holdings') }} h 
+inner join {{ ref('holdings_snapshot') }} h 
     on m.strategistid = h.strategistid
