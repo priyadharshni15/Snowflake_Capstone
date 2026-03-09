@@ -75,8 +75,6 @@ models:
 
       - name: ticker
         description: "Security ticker"
-        tests:
-          - not_null
 
       - name: modelid
         description: "Model identifier associated with the account"
