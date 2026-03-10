@@ -4,8 +4,8 @@ select
     advisorid,
     bdid,
     address,
-    sum(marketvalue) as total_shares
-from {{ ref('dim_combined_data') }}
+    ({{ aggregated_AUM(ref('combined_data')) }}) as Total_AUM
+from {{ ref('combined_data') }}
 group by
     accountid,
     modelid,

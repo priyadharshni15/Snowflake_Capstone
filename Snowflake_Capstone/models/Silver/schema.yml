@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_combined_data
+  - name: combined_data
     description: "Combined dimension table containing account, model, and holdings information"
 
     columns:
@@ -64,44 +64,3 @@ models:
         description: "Security description"
 
 
-  - name: dim_account_holdings
-    description: "Aggregated holdings per account and ticker using macro logic"
-
-    columns:
-      - name: accountid
-        description: "Unique identifier for account"
-        tests:
-          - not_null
-
-      - name: ticker
-        description: "Security ticker"
-
-      - name: modelid
-        description: "Model identifier associated with the account"
-
-      - name: advisorid
-        description: "Advisor managing the account"
-
-      - name: bdid
-        description: "Broker dealer identifier"
-
-      - name: custodian
-        description: "Custodian responsible for holding the assets"
-
-      - name: strategistid
-        description: "Strategist responsible for the investment model"
-
-      - name: strategistcode
-        description: "Code assigned to the strategist"
-
-      - name: strategistname
-        description: "Name of the strategist"
-
-      - name: marketvalue
-        description: "Market value of the holding"
-
-      - name: description
-        description: "Security description"
-
-      - name: total_shares
-        description: "Total shares held for the account and ticker"

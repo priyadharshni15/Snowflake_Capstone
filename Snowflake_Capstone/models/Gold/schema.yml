@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: account_holdings
+    description: "Account level holdings containing security positions for each account"
+
+    columns:
+      - name: accountid
+        description: "Unique identifier for account"
+        tests:
+          - not_null
+
+      - name: ticker
+        description: "Security ticker"
+        tests:
+          - not_null
+
+      - name: modelid
+        description: "Model identifier assigned to the account"
+        tests:
+          - not_null
+
+      - name: advisorid
+        description: "Advisor managing the account"
+
+      - name: bdid
+        description: "Broker dealer identifier"
+
+      - name: custodian
+        description: "Custodian responsible for holding the assets"
+
+      - name: strategistid
+        description: "Strategist responsible for the model"
+
+      - name: strategistcode
+        description: "Code assigned to the strategist"
+
+      - name: strategistname
+        description: "Name of the strategist"
+
+      - name: marketvalue
+        description: "Market value of the holding"
+
+      - name: description
+        description: "Security description"
+
+      - name: total_shares
+        description: "Total shares held for the account and ticker"
+
+
+  - name: model_holdings
+    description: "Model level holdings representing securities included in each investment model"
+
+    columns:
+      - name: modelid
+        description: "Model identifier"
+        tests:
+          - not_null
+
+      - name: ticker
+        description: "Security ticker"
+        tests:
+          - not_null
+
+      - name: cusip
+        description: "CUSIP identifier for the security"
+
+      - name: shares
+        description: "Number of shares allocated in the model"
+
+      - name: marketvalue
+        description: "Market value of the security in the model"
+
+      - name: description
+        description: "Security description"
