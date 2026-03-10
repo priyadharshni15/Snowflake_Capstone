@@ -3,7 +3,7 @@ select
     advisorid,
     bdid,
     address,
-    sum(marketvalue) as total_shares
+    sum(marketvalue) as Total_AUM
 from {{ ref('combined_data') }}
 group by
     modelid,
