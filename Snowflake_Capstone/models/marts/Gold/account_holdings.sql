@@ -5,7 +5,7 @@ select
     bdid,
     address,
     sum(marketvalue) as total_shares
-from {{ ref('dim_combined_data') }}
+from {{ ref('combined_data') }}
 group by
     accountid,
     modelid,
