@@ -4,7 +4,7 @@ select
     advisorid,
     bdid,
     address,
-    sum(marketvalue) as Total_AUM
+    ({{ aggregated_ticker_shares(ref('combined_data')) }}) as Total_AUM
 from {{ ref('combined_data') }}
 group by
     strategistid,
