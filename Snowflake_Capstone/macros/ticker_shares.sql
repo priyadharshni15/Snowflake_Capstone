@@ -1,12 +1,8 @@
 {% macro aggregated_ticker_shares(relation_name) %}
-
 select
-    account_id,
-    ticker,
-    sum(shares) as total_shares
+    accountid,
+    sum(marketvalue) as Total_AUM
 from {{ relation_name }}
 group by
-    account_id,
-    ticker
-
+    accountid
 {% endmacro %}

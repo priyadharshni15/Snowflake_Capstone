@@ -5,72 +5,103 @@ models:
     description: "Combined dimension table containing account, model, and holdings information"
 
     columns:
-      - name: account_id
+      - name: accountid
         description: "Unique identifier for account"
         tests:
           - not_null
 
-      - name: model_code
-        description: "Model code assigned to account"
+      - name: address
+        description: "Address of the account holder"
+
+      - name: modelid
+        description: "Model identifier assigned to account"
         tests:
           - not_null
 
-      - name: model_name
+      - name: advisorid
+        description: "Advisor managing the account"
+
+      - name: bdid
+        description: "Broker dealer identifier"
+
+      - name: custodian
+        description: "Custodian responsible for holding the assets"
+
+      - name: modelname
         description: "Name of the investment model"
 
-      - name: strategist_id
-        description: "Strategist responsible for model"
+      - name: strategistid
+        description: "Strategist responsible for the model"
+        tests:
+          - not_null
 
-      - name: custodian_code
-        description: "Custodian identifier"
+      - name: strategistcode
+        description: "Code assigned to the strategist"
 
-      - name: advisor_id
-        description: "Advisor managing the account"
+      - name: strategistname
+        description: "Name of the strategist"
 
       - name: ticker
         description: "Security ticker"
+        tests:
+          - not_null
+
+      - name: cusip
+        description: "CUSIP identifier for the security"
 
       - name: shares
         description: "Number of shares held"
 
-      - name: market_value
+      - name: marketvalue
         description: "Market value of the holding"
 
-      - name: as_of_timestamp
-        description: "Date of holdings snapshot"
+      - name: date
+        description: "Date of the holdings snapshot"
         tests:
           - not_null
 
+      - name: description
+        description: "Security description"
 
-  - name: dim_sharesum
-    description: "Aggregated shares per account and ticker using macro logic"
+
+  - name: dim_account_holdings
+    description: "Aggregated holdings per account and ticker using macro logic"
 
     columns:
-      - name: account_id
-        description: "Account identifier"
+      - name: accountid
+        description: "Unique identifier for account"
         tests:
           - not_null
 
       - name: ticker
         description: "Security ticker"
-        tests:
-          - not_null
+
+      - name: modelid
+        description: "Model identifier associated with the account"
+
+      - name: advisorid
+        description: "Advisor managing the account"
+
+      - name: bdid
+        description: "Broker dealer identifier"
+
+      - name: custodian
+        description: "Custodian responsible for holding the assets"
+
+      - name: strategistid
+        description: "Strategist responsible for the investment model"
+
+      - name: strategistcode
+        description: "Code assigned to the strategist"
+
+      - name: strategistname
+        description: "Name of the strategist"
+
+      - name: marketvalue
+        description: "Market value of the holding"
+
+      - name: description
+        description: "Security description"
 
       - name: total_shares
-        description: "Total shares held for each ticker"
-
-
-  - name: dim_model
-    description: "Model dimension containing strategist details"
-
-    columns:
-      - name: model_id
-        description: "Unique identifier for model"
-        tests:
-          - not_null
-          - unique
-
-      - name: strategist_id
-        description: "Strategist responsible for the model"
-        tests:
-          - not_null
+        description: "Total shares held for the account and ticker"

@@ -1,11 +1,14 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 select
-    snam                as account_id,
+    pk_id,
+    accountid,
     ticker,
     cusip,
-    share               as shares,
-    mv                  as market_value,
+    shares,
+    marketvalue,
+    date,
     description,
-    date                as as_of_timestamp
+    strategistid
+    
 from {{ source('account_transaction', 'holdings') }}
