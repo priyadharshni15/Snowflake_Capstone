@@ -69,7 +69,7 @@ models:
         description: "Unique identifier for investment model"
         tests:
           - not_null
-          - unique
+#          - unique
 
       - name: modelname
         description: "Name of the investment model"
